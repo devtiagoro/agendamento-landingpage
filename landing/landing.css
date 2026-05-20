@@ -74,46 +74,13 @@ input {
 }
 
 .brand-mark {
-  display: inline-flex;
   width: 42px;
   height: 42px;
   flex: 0 0 42px;
-}
-
-.brand-logo {
-  width: 100%;
-  height: 100%;
   display: block;
-  filter: drop-shadow(0 10px 22px rgba(4, 42, 43, 0.14));
-}
-
-.brand-logo rect {
-  fill: var(--evergreen);
-}
-
-.brand-logo path {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.logo-stem,
-.logo-check {
-  stroke: var(--neon);
-  stroke-width: 8;
-}
-
-.logo-stem {
-  opacity: 0.92;
-}
-
-.logo-check {
+  border-radius: 11px;
+  object-fit: cover;
   filter: drop-shadow(0 0 5px rgba(84, 242, 242, 0.42));
-}
-
-.logo-dots {
-  stroke: var(--neon);
-  stroke-width: 5;
 }
 
 .brand-name {
