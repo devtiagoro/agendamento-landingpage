@@ -840,15 +840,15 @@ h3 {
 .pricing-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  max-width: 1060px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
 .pricing-card {
   position: relative;
   display: flex;
-  min-height: 430px;
-  padding: 24px;
+  min-height: 452px;
+  padding: 23px;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -864,16 +864,16 @@ h3 {
 }
 
 .pricing-card p {
-  margin: 0 0 18px;
+  margin: 0 0 16px;
   color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 0.92rem;
+  line-height: 1.48;
 }
 
-.pricing-card ul {
+.pricing-benefits {
   display: grid;
-  gap: 9px;
-  margin: 0 0 22px;
+  gap: 8px;
+  margin: 0 0 20px;
   padding: 0;
   list-style: none;
 }
@@ -882,7 +882,7 @@ h3 {
   position: relative;
   padding-left: 22px;
   color: #315557;
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   line-height: 1.35;
 }
 
@@ -900,11 +900,11 @@ h3 {
 
 .pricing-badge {
   width: fit-content;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   padding: 7px 12px;
   border-radius: 999px;
-  color: var(--evergreen);
-  background: var(--neon);
+  color: var(--white);
+  background: var(--evergreen);
   font-size: 0.75rem;
   font-weight: 900;
   line-height: 1;
@@ -917,9 +917,9 @@ h3 {
 
 .pricing-price {
   display: block;
-  margin: 2px 0 18px;
+  margin: 2px 0 16px;
   color: var(--evergreen);
-  font-size: clamp(2.25rem, 4.6vw, 3.15rem);
+  font-size: clamp(2.15rem, 4.2vw, 2.95rem);
   font-weight: 950;
   line-height: 1;
 }
@@ -932,8 +932,43 @@ h3 {
   font-weight: 800;
 }
 
+.pricing-extra-price {
+  display: flex;
+  margin: -4px 0 12px;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--evergreen);
+  font-size: clamp(1.32rem, 2.2vw, 1.62rem);
+  font-weight: 950;
+  line-height: 1.1;
+}
+
+.pricing-extra-price span {
+  color: #536b6d;
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.pricing-price-note {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border: 1px solid rgba(94, 177, 191, 0.22);
+  border-radius: 14px;
+  color: #315557;
+  background: rgba(84, 242, 242, 0.1);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.pricing-card--individual {
+  min-height: 430px;
+  border-color: rgba(4, 42, 43, 0.12);
+  background: #ffffff;
+}
+
 .pricing-card--featured {
-  min-height: 474px;
+  min-height: 518px;
   border-color: rgba(94, 177, 191, 0.7);
   background:
     linear-gradient(180deg, rgba(84, 242, 242, 0.18), rgba(255, 255, 255, 0) 32%),
@@ -977,8 +1012,21 @@ h3 {
   box-shadow: 0 18px 36px rgba(94, 177, 191, 0.28);
 }
 
+.pricing-button--secondary {
+  color: var(--evergreen);
+  background: #ffffff;
+  border: 1px solid rgba(4, 42, 43, 0.18);
+  box-shadow: none;
+}
+
+.pricing-button--secondary:hover {
+  color: var(--white);
+  background: var(--evergreen);
+  box-shadow: 0 16px 34px rgba(4, 42, 43, 0.16);
+}
+
 .pricing-card--disabled {
-  min-height: 398px;
+  min-height: 402px;
   background: #f0f3f3;
   opacity: 0.72;
   box-shadow: 0 10px 24px rgba(4, 42, 43, 0.04);
@@ -1278,6 +1326,11 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .pricing-card--featured {
+    grid-column: span 2;
+    order: -1;
+  }
+
   .benefit-card:first-child {
     grid-column: span 2;
   }
@@ -1382,6 +1435,7 @@ h3 {
   }
 
   .pricing-card,
+  .pricing-card--individual,
   .pricing-card--featured,
   .pricing-card--disabled {
     min-height: auto;
@@ -1392,7 +1446,29 @@ h3 {
   }
 
   .pricing-card--featured {
+    grid-column: auto;
     transform: none;
+  }
+
+  .pricing-card--individual {
+    order: 2;
+  }
+
+  .pricing-card--featured {
+    order: 1;
+  }
+
+  .pricing-card--disabled {
+    order: 3;
+  }
+
+  .pricing-extra-price {
+    display: grid;
+    gap: 5px;
+  }
+
+  .pricing-price-note {
+    overflow-wrap: anywhere;
   }
 
   .pricing-button {
