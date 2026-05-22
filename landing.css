@@ -1515,6 +1515,22 @@ h3 {
 
   .footer-grid {
     grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer-brand {
+    justify-content: center;
+  }
+
+  .site-footer p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .site-footer nav,
+  .social-links {
+    display: none;
   }
 
   .whatsapp-float {
