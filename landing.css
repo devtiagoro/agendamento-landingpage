@@ -235,6 +235,10 @@ input {
   width: min(840px, calc(100% - 40px));
 }
 
+.faq-section .narrow {
+  width: min(1180px, calc(100% - 40px));
+}
+
 .hero {
   min-height: calc(100svh - var(--header-height));
   display: grid;
@@ -956,7 +960,7 @@ h3 {
 
 .pricing-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: center;
+  align-items: stretch;
   max-width: 1120px;
   margin: 0 auto;
 }
@@ -964,7 +968,7 @@ h3 {
 .pricing-card {
   position: relative;
   display: flex;
-  min-height: 452px;
+  min-height: 100%;
   padding: 23px;
   flex-direction: column;
   overflow: hidden;
@@ -990,7 +994,7 @@ h3 {
 .pricing-benefits {
   display: grid;
   gap: 8px;
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   padding: 0;
   list-style: none;
 }
@@ -1104,19 +1108,17 @@ h3 {
 }
 
 .pricing-card--individual {
-  min-height: 430px;
   border-color: rgba(4, 42, 43, 0.12);
   background: #ffffff;
 }
 
 .pricing-card--featured {
-  min-height: 518px;
   border-color: rgba(94, 177, 191, 0.7);
   background:
     linear-gradient(180deg, rgba(84, 242, 242, 0.18), rgba(255, 255, 255, 0) 32%),
     #ffffff;
   box-shadow: 0 24px 60px rgba(4, 42, 43, 0.14);
-  transform: translateY(-8px);
+  transform: none;
 }
 
 .custom-price {
@@ -1213,6 +1215,93 @@ h3 {
   font-size: 0.82rem;
   font-weight: 900;
   box-shadow: 0 10px 24px rgba(4, 42, 43, 0.08);
+}
+
+.founder-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1120px;
+  margin: 22px auto 0;
+  padding: clamp(24px, 4vw, 38px);
+  align-items: center;
+  border: 1px solid rgba(4, 42, 43, 0.12);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(4, 42, 43, 0.96), rgba(4, 42, 43, 0.9)),
+    var(--evergreen);
+  box-shadow: 0 20px 52px rgba(4, 42, 43, 0.18);
+}
+
+.founder-plan__content {
+  width: min(100%, 920px);
+  text-align: center;
+}
+
+.founder-plan .pricing-badge {
+  margin: 0 auto 18px;
+  align-self: center;
+}
+
+.founder-plan h3 {
+  width: 100%;
+  margin: 0 auto 14px;
+  color: var(--white);
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  line-height: 1.15;
+}
+
+.founder-plan p {
+  max-width: 760px;
+  margin: 0 auto 22px;
+  color: rgba(252, 252, 252, 0.78);
+  line-height: 1.55;
+}
+
+.founder-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 34px;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.founder-benefits li {
+  position: relative;
+  padding-left: 18px;
+  color: rgba(252, 252, 252, 0.86);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.founder-benefits li::before {
+  content: "";
+  position: absolute;
+  top: 0.48em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--neon);
+  box-shadow: 0 0 0 4px rgba(84, 242, 242, 0.12);
+}
+
+.founder-plan .pricing-button {
+  width: min(90%, 920px);
+  min-width: 0;
+  margin: 0 auto;
+  color: var(--evergreen);
+  background: var(--neon);
+  box-shadow: 0 16px 34px rgba(84, 242, 242, 0.18);
+}
+
+.founder-plan .pricing-button:hover {
+  color: var(--evergreen);
+  background: var(--white);
+  box-shadow: 0 18px 36px rgba(252, 252, 252, 0.18);
 }
 
 .faq-list {
@@ -1482,13 +1571,34 @@ h3 {
     display: none;
   }
 
-  .pricing-card--featured {
-    grid-column: span 2;
-    order: -1;
-  }
-
   .benefit-card:first-child {
     grid-column: span 2;
+  }
+
+  .founder-plan {
+    padding: clamp(28px, 5vw, 36px) 24px;
+  }
+
+  .founder-plan__content {
+    text-align: center;
+  }
+
+  .founder-plan .pricing-badge {
+    display: inline-flex;
+    width: fit-content;
+    align-self: center;
+    margin-right: auto;
+    margin-bottom: 18px;
+    margin-left: auto;
+  }
+
+  .founder-plan h3 {
+    max-width: 620px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    text-align: center;
+    text-wrap: balance;
   }
 
   .timeline {
@@ -1620,18 +1730,6 @@ h3 {
     transform: none;
   }
 
-  .pricing-card--individual {
-    order: 2;
-  }
-
-  .pricing-card--featured {
-    order: 1;
-  }
-
-  .pricing-card--disabled {
-    order: 3;
-  }
-
   .pricing-price-row {
     flex-wrap: wrap;
     gap: 8px;
@@ -1646,6 +1744,45 @@ h3 {
   }
 
   .pricing-button {
+    width: 100%;
+  }
+
+  .founder-plan {
+    gap: 22px;
+    padding: 28px 24px;
+  }
+
+  .founder-plan__content {
+    text-align: center;
+  }
+
+  .founder-plan .pricing-badge {
+    width: fit-content;
+    align-self: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 18px;
+  }
+
+  .founder-plan h3 {
+    max-width: 320px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .founder-plan p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .founder-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-plan .pricing-button {
     width: 100%;
   }
 
